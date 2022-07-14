@@ -1,0 +1,44 @@
+{
+    "inbounds": [
+        {
+            "listen": "127.0.0.1",
+            "port": "1080",
+            "protocol": "socks",
+            "settings": {
+                "auth": "noauth",
+                "udp": true,
+                "ip": "127.0.0.1"
+            }
+        },
+        {
+            "listen": "127.0.0.1",
+            "port": "1081",
+            "protocol": "http"
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "vmess",
+            "settings": {
+                "vnext": [
+                    {
+                        "address": "your-v2ray-server-ip",
+                        "port": 10086,
+                        "users": [
+                            {
+                                "id": "your-v2ray-server-config-id",
+                                "level": 1,
+                                "alterId": 64
+                            }
+                        ]
+                    }
+                ]
+            },
+            "tag": "proxy"
+        },
+        {
+            "protocol": "freedom",
+            "tag": "direct"
+        }
+    ]
+}

@@ -1,0 +1,100 @@
+#=============================================================================
+# dark_powered.toml --- dark powered configuration example for SpaceVim
+# Copyright (c) 2016-2022 Wang Shidong & Contributors
+# Author: Wang Shidong < wsdjeg@outlook.com >
+# URL: https://spacevim.org
+# License: GPLv3
+#=============================================================================
+
+# All SpaceVim option below [option] section
+[options]
+    automatic_update = false
+    guifont = "Fira Code:h16"
+    colorscheme = "SpaceVim"
+    colorscheme_bg = "dark"
+    enable_guicolors = true
+    statusline_separator = "nil"
+    statusline_iseparator = "nil"
+    buffer_index_type = 4
+    enable_tabline_filetype_icon = false
+    enable_statusline_mode = false
+# compatible
+    #vimcompatible = true
+    windows_leader = ''
+    enable_language_specific_leader = false
+    windows_smartclose = ''
+# file tree git status
+    enable_filetree_gitstatus = true
+# tab
+    default_indent = 4
+    expand_tab = true
+
+[[custom_plugins]]
+# dracula theme
+    repo="dracula/vim"
+    name="dracula"
+    merged=false
+
+# Enable autocomplete layer
+[[layers]]
+    name = 'autocomplete'
+    auto_completion_return_key_behavior = "complete"
+    auto_completion_tab_key_behavior = "smart"
+
+# Shell
+[[layers]]
+    name = 'shell'
+    default_position = 'top'
+    default_height = 30
+
+# C/C++
+# SPC l r       run current file
+# SPC l s i     igcc
+[[layers]]
+    name = 'lang#c'
+    enable_clang_syntax_highlight = true
+    #[layer.clang_std]
+    #    cpp = 'c11'
+
+# Python
+# pip install --user flake8 isort yapf
+# SPC l s i     igcc
+# SPC l s l     send by line
+# SPC l s s     send by select
+[[layers]]
+    name = 'lang#python'
+
+# Lua
+[[layers]]
+    name = 'lang#lua'
+
+# LSP
+[[layers]]
+    name = 'lsp'
+    enabled_clients = ['clangd']
+    filetypes = [
+        'c',
+        "cpp"
+    ]
+    [layers.override_cmd]
+        c = ['clangd']
+
+# Format
+# SPC b f
+[[layers]]
+    name = 'format'
+
+# Debug
+# SPC d .       shortcut
+# SPC d l       shart debug
+# SPC d c       continue
+# SPC d b       break
+# SPC d B       clear breaks
+# etc.
+[[layers]]
+    name = 'debug'
+
+
+
+# End.
+
